@@ -1,9 +1,9 @@
 // Copyright 2025 UNN-CS Team
 
+#include <cmath>
 #include <gtest/gtest.h>
 #include "../include/circle.h"
 #include "../include/tasks.h"
-#include <cmath>
 
 // Circle class tests
 TEST(CircleTest, Constructor) {
@@ -123,10 +123,3 @@ TEST(PoolTest, FenceLengthCalculation) {
     PoolCosts costs = calculatePoolCosts();
     EXPECT_DOUBLE_EQ(costs.fenceCost, expectedFenceLength * 2000.0);
 }
-
-int main(int argc, char **argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-
