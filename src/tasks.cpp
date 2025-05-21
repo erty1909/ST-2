@@ -1,4 +1,5 @@
 // Copyright 2025 UNN-CS
+#include <cmath>
 #include "../include/tasks.h"
 #include "../include/circle.h"
 
@@ -10,7 +11,7 @@ double calculateEarthRopeGap() {
     double originalFerence = earth.getFerence();
     double newFerence = originalFerence + ADDITIONAL_LENGTH;
     earth.setFerence(newFerence);
-    double newRadius = earth.getRadius();    
+    double newRadius = earth.getRadius();
     return newRadius - EARTH_RADIUS;
 }
 
