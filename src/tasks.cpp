@@ -1,3 +1,4 @@
+// Copyright 2025 UNN-CS
 #include "../include/tasks.h"
 #include "../include/circle.h"
 
@@ -8,10 +9,8 @@ double calculateEarthRopeGap() {
     Circle earth(EARTH_RADIUS);
     double originalFerence = earth.getFerence();
     double newFerence = originalFerence + ADDITIONAL_LENGTH;
-    
     earth.setFerence(newFerence);
-    double newRadius = earth.getRadius();
-    
+    double newRadius = earth.getRadius();    
     return newRadius - EARTH_RADIUS;
 }
 
@@ -35,4 +34,5 @@ PoolCosts calculatePoolCosts() {
     costs.totalCost = pathCost + fenceCost;
 
     return costs;
-} 
+}
+

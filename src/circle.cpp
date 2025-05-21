@@ -1,6 +1,8 @@
-#include <cstdint>
+// Copyright 2025 UNN-CS
+
 #include "circle.h"
 #include <cmath>
+#include <cstdint>
 #include <stdexcept>
 
 Circle::Circle(double r) {
@@ -18,7 +20,7 @@ void Circle::setRadius(double r) {
 
 void Circle::setFerence(double f) {
     if (f < 0) {
-        throw std::invalid_argument("Длина окружности не может быть отрицательной");
+        throw std::invalid_argument("Не может быть отрицательной");
     }
     ference = f;
     updateRadiusFromFerence();

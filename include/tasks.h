@@ -17,4 +17,4 @@ struct PoolCosts {
 
 PoolCosts calculatePoolCosts();
 
-#endif  // INCLUDE_TASKS_H_ 
+#endif  // INCLUDE_TASKS_H_
