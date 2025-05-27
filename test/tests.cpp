@@ -74,6 +74,21 @@ TEST(CircleTest, SmallRadius) {
     EXPECT_DOUBLE_EQ(c.getArea(), M_PI * 1e-6 * 1e-6);
 }
 
+TEST(CircleTest, PrecisionTest) {
+    Circle c(1.0);
+    double expectedArea = M_PI;
+    double actualArea = c.getArea();
+    EXPECT_NEAR(actualArea, expectedArea, 1e-10);
+}
+
+TEST(CircleTest, ChainUpdates) {
+    Circle c(1.0);
+    c.setRadius(2.0);
+    c.setFerence(c.getFerence());
+    c.setArea(c.getArea());
+    EXPECT_DOUBLE_EQ(c.getRadius(), 2.0);
+}
+
 // Earth and Rope problem tests
 TEST(EarthRopeTest, GapCalculation) {
     double gap = calculateEarthRopeGap();
@@ -85,6 +100,12 @@ TEST(EarthRopeTest, GapConsistency) {
     double gap1 = calculateEarthRopeGap();
     double gap2 = calculateEarthRopeGap();
     EXPECT_DOUBLE_EQ(gap1, gap2);
+}
+
+TEST(EarthRopeTest, PrecisionGap) {
+    double gap = calculateEarthRopeGap();
+    double expectedGap = 1.0 / (2 * M_PI);
+    EXPECT_NEAR(gap, expectedGap, 1e-10);
 }
 
 // Pool problem tests
@@ -122,4 +143,16 @@ TEST(PoolTest, FenceLengthCalculation) {
     double expectedFenceLength = poolWithPath.getFerence();
     PoolCosts costs = calculatePoolCosts();
     EXPECT_DOUBLE_EQ(costs.fenceCost, expectedFenceLength * 2000.0);
+}
+
+TEST(PoolTest, CostPrecision) {
+    PoolCosts costs = calculatePoolCosts();
+    double expectedPathArea = M_PI * (4.0 * 4.0 - 3.0 * 3.0);
+    double expectedPathCost = expectedPathArea * 1000.0;
+    EXPECT_NEAR(costs.pathCost, expectedPathCost, 1e-10);
+}
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
