@@ -152,7 +152,3 @@ TEST(PoolTest, CostPrecision) {
     EXPECT_NEAR(costs.pathCost, expectedPathCost, 1e-10);
 }
 
-int main(int argc, char **argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
